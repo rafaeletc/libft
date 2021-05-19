@@ -1,0 +1,4 @@
+en.subject.pdf
+en.subject.md
+*.theia-workspace
+.vscode
