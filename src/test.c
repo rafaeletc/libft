@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/16 22:42:07 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/05/16 23:48:19 by rde-lima         ###   ########.fr       */
+/*   Created: 2021/05/18 22:12:25 by rde-lima          #+#    #+#             */
+/*   Updated: 2021/05/20 12:36:21 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strnstr(const char *str, const char *to_find)
-{
-	unsigned int	counter;
-	unsigned int	length;
+#ifdef __linux__
+#include <ctype.h>
+#include <bsd/string.h>
+#endif
+#ifdef __apple__
+#include <ctype.h>
+#include <string.h>
+#endif
+#include <stdio.h>
+#include "libft.h"
 
-	if (to_find[0] == '\0')
-		return ((char *)str);
-	counter = 0;
-	while (str[counter] != '\0')
-	{
-		length = counter;
-		while (to_find[length - counter] == str[length])
-			if (to_find[++length - counter] == '\0')
-				return ((char *)str + counter);
-		++counter;
-	}
-	return (0);
+int	ft_isalpha(int c);
+
+int main(void)
+{
+	char a; 
+	a = 'a';
+
+	printf("%i", isalpha(a));
+	return 0;
 }

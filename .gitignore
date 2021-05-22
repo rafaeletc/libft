@@ -1,4 +1,6 @@
-en.subject.pdf
+build/
 en.subject.md
+pt_br.norm.md
 *.theia-workspace
+*.code-workspace
 .vscode

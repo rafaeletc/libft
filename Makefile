@@ -6,6 +6,9 @@
 #    By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/16 21:42:30 by rde-lima          #+#    #+#              #
-#    Updated: 2021/05/16 21:43:23 by rde-lima         ###   ########.fr        #
+#    Updated: 2021/05/20 16:03:11 by rde-lima         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+test:
+		gcc -g -Wall -Wextra -Werror -lbsd -l./lib/libft.h ./src/test.c -o ./build/test

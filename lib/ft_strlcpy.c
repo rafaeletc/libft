@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/16 21:59:40 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/05/16 22:50:01 by rde-lima         ###   ########.fr       */
+/*   Created: 2021/05/16 22:14:15 by rde-lima          #+#    #+#             */
+/*   Updated: 2021/05/18 21:41:15 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlen(const char *str)
-{
-	int	length;
+#include "libft.h"
 
-	length = 0;
-	while (str[length] != '\0')
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+{
+	unsigned int	counter;
+
+	counter = 0;
+	while (counter < size)
 	{
-		++length;
+		dest[counter] = src[counter];
+		++counter;
 	}
-	return (length);
+	--counter;
+	if (counter <= size)
+	{
+		while (dest[counter] != '\0')
+		{
+			dest[counter] = '\0';
+			++counter;
+		}
+	}
+	counter = 0;
+	while (src[counter] != '\0')
+		++counter;
+	return (counter);
 }
