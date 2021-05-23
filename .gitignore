@@ -9,3 +9,4 @@ pt_br.norm.md
 .vscode
 libft.a
 *.out
+test.out.dSYM/

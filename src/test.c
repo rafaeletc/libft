@@ -6,7 +6,7 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 22:12:25 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/05/23 04:30:37 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/05/23 12:31:20 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <ctype.h>
 #include <bsd/string.h>
 #endif
-#ifdef __apple__
+#ifdef __APPLE__
 #include <ctype.h>
 #include <string.h>
 #endif
