@@ -6,13 +6,13 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 22:14:15 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/05/18 21:41:15 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/05/23 14:32:37 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
 {
 	unsigned int	counter;
 
