@@ -1,4 +1,6 @@
 build/
+src/
+docs/
 en.subject.md
 pt_br.norm.md
 *.theia-workspace
