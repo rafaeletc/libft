@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/16 21:42:06 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/05/18 23:20:01 by rde-lima         ###   ########.fr       */
+/*   Created: 2021/05/23 04:08:25 by rde-lima          #+#    #+#             */
+/*   Updated: 2021/05/23 04:20:11 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#include "libft.h"
 
-int				ft_isalpha(int c);
-unsigned int	ft_strlen(const char *str);
-char			*ft_strnstr(const char *str, const char *to_find);
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
-
-#endif
+int	ft_tolower(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
+}

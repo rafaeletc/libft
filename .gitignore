@@ -1,8 +1,11 @@
 build/
-src/
 docs/
+sndbx/
+obj/*.o
 en.subject.md
 pt_br.norm.md
 *.theia-workspace
 *.code-workspace
 .vscode
+libft.a
+*.out
