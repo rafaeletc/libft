@@ -6,7 +6,7 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 22:12:25 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/05/23 15:45:55 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/05/23 23:03:29 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,12 @@
 #include	<stdio.h>
 #include	"libft.h"
 
-int	test_ascii(int r1, int r2, int r3)
+int	test_ascii(void)
 {
+	int r1 = 'R';
+	int r2 = '4';
+	int r3 = 2;
+
 	printf("isalpha\t\t'R': %d '4': %d 2: %d\n",
 		isalpha(r1), isalpha(r2), isalpha(r3));
 	printf("ft_isalpha\t'R': %d '4': %d 2: %d\n\n",
@@ -56,9 +60,50 @@ int	test_ascii(int r1, int r2, int r3)
 	return (0);
 }
 
+int	test_string(void)
+{
+	char src[5] = "amor";
+	char dst[5] = "casa";
+	int s;
+
+	printf("strlen(%s) = %ld\n", src, strlen(src));
+	printf("strlen(%s) = %ld\n\n", dst, strlen(dst));
+	printf("ft_strlen(%s) = %d\n", src, ft_strlen(src));
+	printf("ft_strlen(%s) = %d\n\n", dst, ft_strlen(dst));
+
+	s = 0;
+	while (++s <= 5)
+	{
+		char s1[strlen(src)];
+		char s2[strlen(dst)];
+		char ft_s1[ft_strlen(src)];
+		char ft_s2[ft_strlen(dst)];
+
+		printf("strlcpy(%s, %s, %d) = %ld\n", s1, src, s, strlcpy(s1, src, s));
+		printf("ft_strlcpy(%s, %s, %d) = %d\n\n", ft_s1, src, s, ft_strlcpy(ft_s1, src, s));
+		printf("strlcpy(%s, %s, %d) = %ld\n", s2, dst, s, strlcpy(s2, dst, s));
+		printf("ft_strlcpy(%s, %s, %d) = %d\n\n", ft_s2, dst, s, ft_strlcpy(ft_s2, dst, s));
+	}
+
+	s = -1;
+	while (++s <= 9)
+	{
+		char s1[5] = "amor";
+		char s2[9] = "casa";
+		char ft_s1[5] = "amor";
+		char ft_s2[9] = "casa";
+
+		printf("strlcat(%s, %s, %d) = %ld\n", s2, s1, s, strlcat(s2, s1, s));
+		printf("ft_strlcat(%s, %s, %d) = %d\n\n", ft_s2, ft_s1, s, ft_strlcat(ft_s2, ft_s1, s));
+	}
+	return (0);
+}
+
 int	main(void)
 {
 	printf("Testing ASCII related functions:\n");
-	test_ascii('R', '4', 2);
+	test_ascii();
+	printf("Testing String related functions:\n");
+	test_string();
 	return (0);
 }

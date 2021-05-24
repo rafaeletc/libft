@@ -6,7 +6,7 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 22:18:12 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/05/23 14:32:30 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/05/23 22:57:33 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,9 @@ unsigned int	ft_strlcat(char *dest, const char *src, unsigned int size)
 		return (src_len);
 	if (size <= src_len)
 		return (size + src_len);
-	while (size && (size - dest_len) && src[counter])
+	while (size-- && (size - dest_len) && src[counter])
 	{
 		dest[dest_len + counter] = src[counter];
-		--size;
 		++counter;
 	}
 	dest[counter + dest_len] = '\0';
