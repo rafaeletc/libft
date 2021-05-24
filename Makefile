@@ -6,7 +6,7 @@
 #    By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/16 21:42:30 by rde-lima          #+#    #+#              #
-#    Updated: 2021/05/24 15:11:57 by rde-lima         ###   ########.fr        #
+#    Updated: 2021/05/24 20:26:29 by rde-lima         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,12 +25,12 @@ SRC=	ft_isalpha.c \
 		ft_strncmp.c
 CFLAGS=	-Wall -Werror -Wextra -g
 OBJ :=	$(SRC:%.c=%.o)
-CC=		gcc
 
-all:	$(NAME)
+all: $(NAME)
 
 $(OBJ): %.o : %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
+	@echo "Compiled $< successfully!"
 
 $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
