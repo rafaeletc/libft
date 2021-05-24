@@ -6,32 +6,30 @@
 #    By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/16 21:42:30 by rde-lima          #+#    #+#              #
-#    Updated: 2021/05/23 15:04:05 by rde-lima         ###   ########.fr        #
+#    Updated: 2021/05/24 15:11:57 by rde-lima         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=	libft.a
-SRC=	src/ft_isalpha.c \
-		src/ft_isdigit.c \
-		src/ft_isalnum.c \
-		src/ft_isascii.c \
-		src/ft_isprint.c \
-		src/ft_toupper.c \
-		src/ft_tolower.c \
-		src/ft_strlen.c \
-		src/ft_strlcpy.c \
-		src/ft_strlcat.c \
-		src/ft_strnstr.c \
-		src/ft_strncmp.c
-CFLAGS=	-Wall -Werror -Wextra
-SRCDIR=	src
-OBJDIR=	obj
-OBJ := $(SRC:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
+SRC=	ft_isalpha.c \
+		ft_isdigit.c \
+		ft_isalnum.c \
+		ft_isascii.c \
+		ft_isprint.c \
+		ft_toupper.c \
+		ft_tolower.c \
+		ft_strlen.c \
+		ft_strlcpy.c \
+		ft_strlcat.c \
+		ft_strnstr.c \
+		ft_strncmp.c
+CFLAGS=	-Wall -Werror -Wextra -g
+OBJ :=	$(SRC:%.c=%.o)
 CC=		gcc
 
 all:	$(NAME)
 
-$(OBJ): $(OBJDIR)/%.o : $(SRCDIR)/%.c
+$(OBJ): %.o : %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)

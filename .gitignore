@@ -1,7 +1,7 @@
 build/
 docs/
 sndbx/
-obj/*.o
+*.o
 en.subject.md
 pt_br.norm.md
 *.theia-workspace
@@ -9,4 +9,5 @@ pt_br.norm.md
 .vscode
 libft.a
 *.out
+test
 test.out.dSYM/
