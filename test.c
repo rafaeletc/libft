@@ -6,7 +6,7 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 22:12:25 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/05/23 23:03:29 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/05/24 22:27:16 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,27 @@ int	test_string(void)
 
 		printf("strlcat(%s, %s, %d) = %ld\n", s2, s1, s, strlcat(s2, s1, s));
 		printf("ft_strlcat(%s, %s, %d) = %d\n\n", ft_s2, ft_s1, s, ft_strlcat(ft_s2, ft_s1, s));
+	}
+	s = -1;
+	while (++s <= 5)
+	{
+		char s1[13] = "amorosamente";
+		char s2[5] = "amor";
+		char s3[5] = "rosa";
+		char s4[6] = "mente";
+
+		printf("strncmp(%s, %s, %d) = %d\n", s1, s2, s, strncmp(s1, s2, s));
+		printf("ft_strncmp(%s, %s, %d) = %d\n\n", s1, s2, s, ft_strncmp(s1, s2, s));
+		printf("strncmp(%s, %s, %d) = %d\n", s2, s1, s, strncmp(s1, s2, s));
+		printf("ft_strncmp(%s, %s, %d) = %d\n\n", s2, s1, s, ft_strncmp(s1, s2, s));
+		printf("strncmp(%s, %s, %d) = %d\n", s1, s3, s, strncmp(s1, s2, s));
+		printf("ft_strncmp(%s, %s, %d) = %d\n\n", s1, s3, s, ft_strncmp(s1, s2, s));
+		printf("strncmp(%s, %s, %d) = %d\n", s3, s1, s, strncmp(s1, s2, s));
+		printf("ft_strncmp(%s, %s, %d) = %d\n", s3, s1, s, ft_strncmp(s1, s2, s));
+		printf("strncmp(%s, %s, %d) = %d\n", s1, s4, s, strncmp(s1, s2, s));
+		printf("ft_strncmp(%s, %s, %d) = %d\n", s1, s4, s, ft_strncmp(s1, s2, s));
+		printf("strncmp(%s, %s, %d) = %d\n", s1, s1, s, strncmp(s1, s2, s));
+		printf("ft_strncmp(%s, %s, %d) = %d\n", s1, s1, s, ft_strncmp(s1, s2, s));
 	}
 	return (0);
 }
