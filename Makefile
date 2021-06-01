@@ -6,23 +6,32 @@
 #    By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/16 21:42:30 by rde-lima          #+#    #+#              #
-#    Updated: 2021/05/24 22:38:46 by rde-lima         ###   ########.fr        #
+#    Updated: 2021/05/30 14:50:29 by rde-lima         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=	libft.a
-SRC=	ft_isalpha.c \
+SRC=	ft_memset.c \
+		ft_bzero.c \
+		ft_memcpy.c \
+		ft_memccpy.c \
+		ft_memmove.c \
+		ft_memchr.c \
+		ft_memcmp.c \
+		ft_strlen.c \
+		ft_isalpha.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
 		ft_isascii.c \
 		ft_isprint.c \
 		ft_toupper.c \
 		ft_tolower.c \
-		ft_strlen.c \
+		ft_strchr.c \
+		ft_strrchr.c \
+		ft_strncmp.c \
 		ft_strlcpy.c \
 		ft_strlcat.c \
-		ft_strnstr.c \
-		ft_strncmp.c
+		ft_strnstr.c
 CFLAGS=	-Wall -Werror -Wextra -g
 OBJ :=	$(SRC:%.c=%.o)
 
@@ -47,4 +56,8 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
+	gcc -nostartfiles -shared -o libft.so $(OBJ)
+
+.PHONY: all clean fclean re so
