@@ -1,13 +1,10 @@
-build/
-docs/
 sndbx/
 *.o
-en.subject.md
-pt_br.norm.md
 *.theia-workspace
 *.code-workspace
 .vscode
-libft.a
+*.a
+*.so
 *.out
 test
 test.out.dSYM/
