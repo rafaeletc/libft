@@ -6,33 +6,28 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 22:14:15 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/05/23 14:32:37 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/05/30 04:26:00 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	unsigned int	counter;
+	size_t	counter;
+	size_t	length;
 
+	if (!dest)
+		return (0);
+	length = ft_strlen(src);
+	if (size == 0)
+		return (length);
 	counter = 0;
-	while (counter < size)
+	while (counter < size - 1 && counter < length)
 	{
 		dest[counter] = src[counter];
 		++counter;
 	}
-	--counter;
-	if (counter <= size)
-	{
-		while (dest[counter] != '\0')
-		{
-			dest[counter] = '\0';
-			++counter;
-		}
-	}
-	counter = 0;
-	while (src[counter] != '\0')
-		++counter;
-	return (counter);
+	dest[counter] = '\0';
+	return (length);
 }
