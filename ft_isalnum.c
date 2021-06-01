@@ -6,7 +6,7 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 03:30:12 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/05/23 03:34:07 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/06/01 01:31:17 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	ft_isalnum(int c)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
+	if (ft_isdigit(c) || ft_isalpha(c))
 		return (1);
-	return (0);
+	else
+		return (0);
 }
