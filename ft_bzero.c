@@ -6,7 +6,7 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 03:28:45 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/05/30 03:54:18 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/06/02 16:24:20 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*p;
-
-	p = s;
-	while (n-- > 0)
-		*p++ = '\0';
+	ft_memset(s, 0, n);
 }
