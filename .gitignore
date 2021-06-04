@@ -6,5 +6,4 @@ sndbx/
 *.a
 *.so
 *.out
-test
-test.out.dSYM/
+test*
