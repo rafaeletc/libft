@@ -6,7 +6,7 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 22:12:25 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/06/01 04:59:07 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/06/03 20:17:07 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@
 #include	<stdio.h>
 #include	"libft.h"
 
-#define		ARR_SIZE 42
+#define		ARR_SIZE	42
 
 void	test_isalnum(void)
 {
 	unsigned char	c;
-	int	t[] = {0, 0};
-	int	f[] = {0, 0};
+	static int		t[2];
+	static int		f[2];
 
 	c = -1;
 	printf("\n\tTesting ft_isalnum() against isalnum() w/ ASCII characters\n");
@@ -55,8 +55,8 @@ void	test_isalnum(void)
 void	test_isalpha(void)
 {
 	unsigned char	c;
-	int	t[] = {0, 0};
-	int	f[] = {0, 0};
+	static int		t[2];
+	static int		f[2];
 
 	c = -1;
 	printf("\n\tTesting ft_isalpha() against isalpha() w/ ASCII characters\n");
@@ -84,8 +84,8 @@ void	test_isalpha(void)
 void	test_isdigit(void)
 {
 	unsigned char	c;
-	int	t[] = {0, 0};
-	int	f[] = {0, 0};
+	static int		t[2];
+	static int		f[2];
 
 	c = -1;
 	printf("\n\tTesting ft_isdigit() against isdigit() w/ ASCII characters\n");
@@ -113,8 +113,8 @@ void	test_isdigit(void)
 void	test_isascii(void)
 {
 	unsigned char	c;
-	int	t[] = {0, 0};
-	int	f[] = {0, 0};
+	static int		t[2];
+	static int		f[2];
 
 	c = -1;
 	printf("\n\tTesting ft_isascii() against isascii() w/ ASCII characters\n");
@@ -142,8 +142,8 @@ void	test_isascii(void)
 void	test_isprint(void)
 {
 	unsigned char	c;
-	int	t[] = {0, 0};
-	int	f[] = {0, 0};
+	static int		t[2];
+	static int		f[2];
 
 	c = -1;
 	printf("\n\tTesting ft_isprint() against isprint() w/ ASCII characters\n");
@@ -170,12 +170,13 @@ void	test_isprint(void)
 
 void	test_tolower(void)
 {
-	char	str[ARR_SIZE] = "TUDO ISSO MINUSCULO -42";
+	char	str[ARR_SIZE];
 	char	temp[ARR_SIZE];
 	char	ft_temp[ARR_SIZE];
-	int	counter;
+	int		counter;
 
 	printf("\n\tTesting ft_tolower() against tolower() w/ silly string\n");
+	strcpy(str, "TUDO ISSO MINUSCULO -42");
 	strcpy(temp, str);
 	strcpy(ft_temp, str);
 	counter = 0;
@@ -197,12 +198,13 @@ void	test_tolower(void)
 
 void	test_toupper(void)
 {
-	char	str[ARR_SIZE] = "tudo isso em maiusculo -42";
+	char	str[ARR_SIZE];
 	char	temp[ARR_SIZE];
 	char	ft_temp[ARR_SIZE];
 	int		counter;
 
 	printf("\n\tTesting ft_toupper() against toupper() w/ silly string\n");
+	strcpy(str, "tudo isso em maiusculo -42");
 	strcpy(temp, str);
 	strcpy(ft_temp, str);
 	counter = 0;
@@ -224,11 +226,12 @@ void	test_toupper(void)
 
 void	test_memset()
 {
-	char	*str = "ghghghghghghghghghghgh";
+	char	*str;
 	char	temp[ARR_SIZE];
 	char	ft_temp[ARR_SIZE];
 
 	printf("\n\tTesting ft_memset() against memset() w/ silly string\n");
+	strcpy(str, "ghghghghghghghghghghgh");
 	strcpy(temp, str);
 	memset(temp, 'a', 13);
 	strcpy(ft_temp, str);
@@ -250,11 +253,12 @@ void	test_memset()
 
 void	test_bzero()
 {
-	char	str[ARR_SIZE] = "ghghghghghghghghghghgh";
+	char	str[ARR_SIZE];
 	char	temp[ARR_SIZE];
 	char	ft_temp[ARR_SIZE];
 
 	printf("\n\tTesting ft_bzero() against bzero() w/ silly string\n");
+	strcpy(str, "ghghghghghghghghghghgh");
 	strcpy(temp, str);
 	bzero(temp, 1);
 	strcpy(ft_temp, str);
@@ -276,11 +280,12 @@ void	test_bzero()
 
 void	test_memcpy(void)
 {
-	char	str[ARR_SIZE] = "ghghghghghghghghghghgh";
+	char	str[ARR_SIZE];
 	char	temp[ARR_SIZE];
 	char	ft_temp[ARR_SIZE];
 
 	printf("\n\tTesting ft_memcpy() against memcpy() w/ silly string\n");
+	strcpy(str, "ghghghghghghghghghghgh");
 	bzero(temp, ARR_SIZE);
 	memcpy(temp, str, 5);
 	ft_bzero(ft_temp, ARR_SIZE);
@@ -302,11 +307,12 @@ void	test_memcpy(void)
 
 void	test_memccpy(void)
 {
-	char	str[ARR_SIZE] = "eu sou o máximo";
+	char	str[ARR_SIZE];
 	char	temp[ARR_SIZE];
 	char	ft_temp[ARR_SIZE];
 
 	printf("\n\tTesting ft_memccpy() against memccpy() w/ silly string\n");
+	strcpy(str, "eu sou o máximo");
 	bzero(temp, ARR_SIZE);
 	memccpy(temp, str, 'o', 5);
 	ft_bzero(ft_temp, ARR_SIZE);
@@ -328,11 +334,14 @@ void	test_memccpy(void)
 
 void	test_memmove(void)
 {
-	char	str[ARR_SIZE] = "eu sou o mariano";
-	char	temp[ARR_SIZE] = "eu fico, máximo";
-	char	ft_temp[ARR_SIZE] = "eu fico, máximo";
+	char	str[ARR_SIZE];
+	char	temp[ARR_SIZE];
+	char	ft_temp[ARR_SIZE];
 
 	printf("\n\tTesting ft_memmove() against memmove() w/ silly string\n");
+	strcpy(str, "eu sou o mariano");
+	strcpy(temp, "eu fico, máximo");
+	strcpy(ft_temp, "eu fico, máximo");
 	memmove(temp, str, 8);
 	ft_memmove(ft_temp, str, 8);
 	if (memcmp(temp, ft_temp, 8) != 0)
@@ -372,12 +381,14 @@ void	test_memchr(void)
 
 void	test_memcmp(void)
 {
-	char	str1[ARR_SIZE] = "abcdef";
-	char	str2[ARR_SIZE] = "zyxwvu";
-	int		r[] = {0, 0, 0, 0};
-	int		ft_r[] = {0, 0, 0, 0};
+	char		str1[ARR_SIZE];
+	char		str2[ARR_SIZE];
+	static int	r[5];
+	static int	ft_r[5];
 
 	printf("\n\tTesting ft_memcmp() against memcmp() w/ silly string\n");
+	strcpy(str1, "abcdef");
+	strcpy(str2, "zyxwvu");
 	r[0] = memcmp(str1, str1, 6);
 	r[1] = memcmp(str1, str2, 6);
 	r[2] = memcmp(str2, str2, 6);
@@ -403,6 +414,8 @@ void	test_memcmp(void)
 	else
 		printf("\t✅ ft_memcmp is OK\n");
 }
+
+void	test_atoi
 
 int	main(void)
 {

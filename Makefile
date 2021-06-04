@@ -6,7 +6,7 @@
 #    By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/16 21:42:30 by rde-lima          #+#    #+#              #
-#    Updated: 2021/06/01 04:07:49 by rde-lima         ###   ########.fr        #
+#    Updated: 2021/06/04 18:46:18 by rde-lima         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,13 @@ SRC=	ft_memset.c \
 		ft_memchr.c \
 		ft_memcmp.c \
 		ft_strlen.c \
+		ft_strlcpy.c \
+		ft_strlcat.c \
+		ft_strchr.c \
+		ft_strrchr.c \
+		ft_strnstr.c \
+		ft_strncmp.c \
+		ft_atoi.c \
 		ft_isalpha.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
@@ -26,12 +33,11 @@ SRC=	ft_memset.c \
 		ft_isprint.c \
 		ft_toupper.c \
 		ft_tolower.c \
-		ft_strchr.c \
-		ft_strrchr.c \
-		ft_strncmp.c \
-		ft_strlcpy.c \
-		ft_strlcat.c \
-		ft_strnstr.c
+		ft_strdup.c \
+		ft_calloc.c \
+		ft_substr.c \
+		ft_strjoin.c \
+		ft_strtrim.c
 CFLAGS=	-Wall -Werror -Wextra -g
 OBJ :=	$(SRC:%.c=%.o)
 
