@@ -6,7 +6,7 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/23 04:04:09 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/06/01 04:32:57 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/06/02 16:58:13 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	else
-		return (c);
+		return (c & 0x5f);
+	return (c);
 }
