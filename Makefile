@@ -6,7 +6,7 @@
 #    By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/16 21:42:30 by rde-lima          #+#    #+#              #
-#    Updated: 2021/06/04 18:46:18 by rde-lima         ###   ########.fr        #
+#    Updated: 2021/06/14 21:06:36 by rde-lima         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,15 @@ SRC=	ft_memset.c \
 		ft_calloc.c \
 		ft_substr.c \
 		ft_strjoin.c \
-		ft_strtrim.c
-CFLAGS=	-Wall -Werror -Wextra -g
+		ft_strtrim.c \
+		ft_split.c
+#		ft_itoa.c \#
+#		ft_strmapi.c \#
+#		ft_putchar_fd.c \#
+#		ft_putstr_fd.c \#
+#		ft_putendl_fd.c \#
+#		ft_putnbr_fd.c#
+CFLAGS=	-Wall -Werror -Wextra -g -v
 OBJ :=	$(SRC:%.c=%.o)
 
 all: $(NAME)

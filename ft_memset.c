@@ -6,7 +6,7 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/30 12:22:18 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/06/04 18:59:06 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/06/04 22:02:33 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	char	*str;
+	unsigned char	*str;
 
-	str = (char *)s;
-	while (n--)
-		*str++ = c;
+	str = s;
+	while (n-- > 0)
+		*str++ = (unsigned char)c;
 	return (str);
 }

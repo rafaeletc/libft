@@ -7,3 +7,5 @@ sndbx/
 *.so
 *.out
 test*
+.tags*
+*.sublime*

@@ -194,7 +194,7 @@ If you successfully completed the mandatory part, you'll enjoy taking it further
 Having functions to manipulate memory and strings is very useful, but you'll soon discover that having functions to manipulate lists is even more useful.
 You'll use the following structure to represent the elements of your list. This structure must be added to your `libft.h` file.
 `make bonus` will add the bonus functions to the `libft.a` library.
-You do not have to add _bonus to the .c files and the header in this part. Only `add_bonus` to the files containing your own bonus functions.
+You do not have to add \_bonus to the .c files and the header in this part. Only `add_bonus` to the files containing your own bonus functions.
 
 ```c
 typedef struct      s_list

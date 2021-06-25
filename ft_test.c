@@ -6,7 +6,7 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 22:12:25 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/06/03 20:17:07 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/06/05 02:51:20 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -226,7 +226,7 @@ void	test_toupper(void)
 
 void	test_memset()
 {
-	char	*str;
+	char	str[ARR_SIZE];
 	char	temp[ARR_SIZE];
 	char	ft_temp[ARR_SIZE];
 
@@ -383,39 +383,80 @@ void	test_memcmp(void)
 {
 	char		str1[ARR_SIZE];
 	char		str2[ARR_SIZE];
-	static int	r[5];
-	static int	ft_r[5];
 
 	printf("\n\tTesting ft_memcmp() against memcmp() w/ silly string\n");
 	strcpy(str1, "abcdef");
 	strcpy(str2, "zyxwvu");
-	r[0] = memcmp(str1, str1, 6);
-	r[1] = memcmp(str1, str2, 6);
-	r[2] = memcmp(str2, str2, 6);
-	r[3] = memcmp(str2, str1, 6);
-	ft_r[0] = ft_memcmp(str1, str1, 6);
-	ft_r[1] = ft_memcmp(str1, str2, 6);
-	ft_r[2] = ft_memcmp(str2, str2, 6);
-	ft_r[3] = ft_memcmp(str2, str1, 6);
-	if ((r[0] != ft_r[0]) && (r[2] != ft_r[2]) && ((r[1] || ft_r[1]) == 0) && ((r[3] || ft_r[3]) == 0))
-	{
-		printf("\t❌ ft_memcmp is not OK\n");
-		printf("\n\t(%p)str1 = \"%s\"\n", &str1, str1);
-		printf("\t(%p)str2 = \"%s\"\n\n", &str2, str2);
-		printf("\tmemcmp(str1, str1, 6) = %d\n", r[0]);
-		printf("\tft_memcmp(str1, str1, 6) = %d\n", ft_r[0]);
-		printf("\tmemcmp(str1, str2, 6) = %d\n", r[1]);
-		printf("\tft_memcmp(str1, str2, 6) = %d\n", ft_r[1]);
-		printf("\tmemcmp(str2, str2, 6) = %d\n", r[2]);
-		printf("\tft_memcmp(str2, str2, 6) = %d\n", ft_r[2]);
-		printf("\tmemcmp(str2, str1, 6) = %d\n", r[3]);
-		printf("\tft_memcmp(str2, str1, 6) = %d\n", ft_r[3]);
-	}
+	if (memcmp(str1, str1, 6) != ft_memcmp(str1, str1, 6))
+		printf("\t❌ KO ");
 	else
-		printf("\t✅ ft_memcmp is OK\n");
+		printf("\t✅ OK ");
+	if (memcmp(str1, str2, 6) == ft_memcmp(str1, str2, 6))
+		printf("❌ KO ");
+	else
+		printf("✅ OK ");
+	if (memcmp(str2, str2, 6) != ft_memcmp(str2, str2, 6))
+		printf("❌ KO ");
+	else
+		printf("✅ OK ");
+	if (memcmp(str2, str1, 6) == ft_memcmp(str2, str1, 6))
+		printf("❌ KO\n");
+	else
+		printf("✅ OK\n");
 }
 
-void	test_atoi
+void	test_atoi(void)
+{
+	printf("\n\tTesting ft_atoi() against atoi() w/ silly string\n");
+	if (atoi("    --42") != ft_atoi("    --42"))
+		printf("\t❌ KO ");
+	else
+		printf("\t✅ OK ");
+	if (atoi("    ++42") != ft_atoi("    ++42"))
+		printf("❌ KO ");
+	else
+		printf("✅ OK ");
+	if (atoi(" -+42") != ft_atoi(" -+42"))
+		printf("❌ KO ");
+	else
+		printf("✅ OK ");
+	if (atoi(" +-42") != ft_atoi(" +-42"))
+		printf("❌ KO ");
+	else
+		printf("✅ OK ");
+	if (atoi(" +42lyon") != ft_atoi(" +42lyon"))
+		printf("❌ KO ");
+	else
+		printf("✅ OK ");
+	if (atoi("+101   @ 5") != ft_atoi("+101   @ 5"))
+		printf("❌ KO ");
+	else
+		printf("✅ OK ");
+	if (atoi(" -123junk42") != ft_atoi(" -123junk42"))
+		printf("❌ KO ");
+	else
+		printf("✅ OK ");
+	if (atoi("0") != ft_atoi("0"))
+		printf("❌ KO ");
+	else
+		printf("✅ OK ");
+	if (atoi("junk") != ft_atoi("junk"))
+		printf("❌ KO ");
+	else
+		printf("✅ OK ");
+	if (atoi("2147483647") != ft_atoi("2147483647"))
+		printf("❌ KO ");
+	else
+		printf("✅ OK ");
+	if (atoi("2147483648") != ft_atoi("2147483648"))
+		printf("❌ KO ");
+	else
+		printf("✅ OK ");
+	if (atoi("-2147483648") != ft_atoi("2147483648"))
+		printf("❌ KO\n");
+	else
+		printf("✅ OK\n");
+}
 
 int	main(void)
 {
@@ -435,5 +476,7 @@ int	main(void)
 	test_memmove();
 	test_memchr();
 	test_memcmp();
+	printf("\nTesting extra functions:\n");
+	test_atoi();
 	return (0);
 }
