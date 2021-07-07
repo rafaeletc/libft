@@ -6,7 +6,7 @@
 #    By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/16 21:42:30 by rde-lima          #+#    #+#              #
-#    Updated: 2021/06/14 21:06:36 by rde-lima         ###   ########.fr        #
+#    Updated: 2021/07/07 13:19:30 by rde-lima         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,9 +72,5 @@ re: fclean all
 so:
 	@$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
 	@gcc -nostartfiles -shared -o libft.so $(OBJ)
-
-test:
-	@$(CC) $(CFLAGS) ft_test.c -L. -lft -lbsd -lc -o test
-	@echo "Compiled ft_test.c successfully!"
 
 .PHONY: all clean fclean re so test

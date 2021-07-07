@@ -6,7 +6,7 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 22:12:25 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/06/05 02:51:20 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/07/07 13:19:09 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include	<ctype.h>
 #include	<stdlib.h>
 #include	<stdio.h>
-#include	"libft.h"
+#include	"../libft.h"
 
 #define		ARR_SIZE	42
 
