@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/04 14:31:19 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/07/09 19:27:40 by rde-lima         ###   ########.fr       */
+/*   Created: 2021/07/09 12:40:42 by rde-lima          #+#    #+#             */
+/*   Updated: 2021/07/09 12:54:05 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#include "libft.h"
-
-char	*ft_strtrim(const char *s1, const char *set)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	size_t	start;
-	size_t	end;
+	char	*str;
 	size_t	counter;
 
-	if (!s1)
+	if (!s || !f)
+		return (NULL);
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!str)
 		return (NULL);
 	counter = 0;
-	start = 0;
-	end = ft_strlen(s1) - 1;
-	while (s1[counter] && ft_strchr(set, s1[counter]))
+	while (s[counter])
 	{
-		start = (counter) + 1;
+		str[counter] = f(counter, s[counter]);
 		++counter;
 	}
-	if (start > ft_strlen(s1))
-		return ((char *)ft_calloc(sizeof(char), 1));
-	counter = ft_strlen(s1) - 1;
-	while (counter && s1[counter] && ft_strchr(set, s1[counter]))
-	{
-		end = counter - 1;
-		--counter;
-	}
-	return (ft_substr(s1, start, (end - start + 1)));
+	str[counter] = '\0';
+	return (str);
 }

@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/01 20:10:04 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/07/09 17:08:51 by rde-lima         ###   ########.fr       */
+/*   Created: 2021/07/09 14:45:34 by rde-lima          #+#    #+#             */
+/*   Updated: 2021/07/09 19:55:53 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h"
+#include "libft.h"
 
-void	*ft_calloc(size_t num, size_t size)
+void	ft_putchar_fd(char c, int fd)
 {
-	void	*dest;
-
-	dest = malloc(num * size);
-	if (!dest)
-		return (NULL);
-	ft_bzero(dest, (num * size));
-	return (dest);
+	if (fd >= 0)
+		write(fd, &c, 1);
 }

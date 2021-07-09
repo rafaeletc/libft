@@ -6,7 +6,7 @@
 #    By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/16 21:42:30 by rde-lima          #+#    #+#              #
-#    Updated: 2021/07/07 13:19:30 by rde-lima         ###   ########.fr        #
+#    Updated: 2021/07/09 19:47:55 by rde-lima         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,25 +38,26 @@ SRC=	ft_memset.c \
 		ft_substr.c \
 		ft_strjoin.c \
 		ft_strtrim.c \
-		ft_split.c
-#		ft_itoa.c \#
-#		ft_strmapi.c \#
-#		ft_putchar_fd.c \#
-#		ft_putstr_fd.c \#
-#		ft_putendl_fd.c \#
-#		ft_putnbr_fd.c#
-CFLAGS=	-Wall -Werror -Wextra -g -v
+		ft_split.c \
+		ft_itoa.c \
+		ft_strmapi.c \
+		ft_strteri.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c
+FLAGS =	-Wall -Werror -Wextra -g
 OBJ :=	$(SRC:%.c=%.o)
+CC	=	clang
 
 all: $(NAME)
 
 $(OBJ): %.o : %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@
 	@echo "Compiled $< successfully!"
 
 $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
-	@ranlib $(NAME)
 	@echo "Compiled $(NAME) successfully!"
 
 clean:
@@ -70,7 +71,7 @@ fclean: clean
 re: fclean all
 
 so:
-	@$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
+	@$(CC) -nostartfiles -fPIC $(FLAGS) $(SRC)
 	@gcc -nostartfiles -shared -o libft.so $(OBJ)
 
-.PHONY: all clean fclean re so test
+.PHONY: all clean fclean re so

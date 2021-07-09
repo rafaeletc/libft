@@ -6,7 +6,7 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 20:06:32 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/06/04 00:23:54 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/07/09 17:26:16 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,21 @@
 
 int	ft_atoi(const char *str)
 {
-	int		s;
-	int		atoi;
+	int	atoi;
+	int	s;
 
 	atoi = 0;
-	s = -1;
-	while (*str == 32)
+	s = 1;
+	while (*str == 32 || (*str > 8 && *str < 14))
 		str++;
-	if ((*str == 43) || (*str == 45))
-		if (*str++ == 45)
-			s = 1;
-	while (ft_isdigit(*str))
+	if (*str == '-')
 	{
-		atoi *= 10;
-		atoi -= (*str - 48);
-		if (*str++ < atoi)
-		{
-			if (s < 0)
-				return (-1);
-			return (0);
-		}
+		s = -1;
+		str++;
 	}
+	else if (*str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
+		atoi = atoi * 10 + (*str++ - '0');
 	return (atoi * s);
 }
