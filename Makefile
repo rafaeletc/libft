@@ -6,7 +6,7 @@
 #    By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/16 21:42:30 by rde-lima          #+#    #+#              #
-#    Updated: 2021/07/09 19:47:55 by rde-lima         ###   ########.fr        #
+#    Updated: 2021/07/10 16:17:48 by rde-lima         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ SRC=	ft_memset.c \
 		ft_putnbr_fd.c
 FLAGS =	-Wall -Werror -Wextra -g
 OBJ :=	$(SRC:%.c=%.o)
-CC	=	clang
+CC =	clang
 
 all: $(NAME)
 
@@ -70,8 +70,4 @@ fclean: clean
 
 re: fclean all
 
-so:
-	@$(CC) -nostartfiles -fPIC $(FLAGS) $(SRC)
-	@gcc -nostartfiles -shared -o libft.so $(OBJ)
-
-.PHONY: all clean fclean re so
+.PHONY: all clean fclean re

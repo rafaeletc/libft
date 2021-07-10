@@ -6,62 +6,62 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 21:09:50 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/07/09 13:46:35 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/07/09 21:32:21 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ndigit(int n)
+static unsigned int	ft_get_nbr(long nl, int s)
 {
-	int	count;
+	unsigned int	nbr;
 
-	count = 0;
-	if (n == 0)
-		count = 1;
-	while (n != 0)
+	if (nl == 0)
+		return (1);
+	nbr = 0;
+	while (nl > 0)
 	{
-		n /= 10;
-		count++;
+		nl /= 10;
+		nbr++;
 	}
-	return (count);
+	if (s == -1)
+		nbr++;
+	return (nbr);
 }
 
-static char	*ft_itoa_disgusting_hack(int nu, int len)
+static void	ft_convert_nbr(char *str, long nl, unsigned int nbr, int s)
 {
-	char	*str;
-	int		i;
-	long	n;
-
-	n = (long)nu;
-	str = malloc(sizeof(char) * len + (n < 0 ? 2 : 1));
-	if (!str)
-		return (NULL);
-	if (n < 0)
+	str[nbr] = '\0';
+	str[--nbr] = nl % 10 + '0';
+	nl /= 10;
+	while (nl > 0)
 	{
-		n *= -1;
-		len++;
+		str[--nbr] = nl % 10 + '0';
+		nl /= 10;
 	}
-	if (n == 0)
-		str[0] = '0';
-	i = len - 1;
-	while (i >= 0)
-	{
-		str[i--] = (n % 10) + '0';
-		n /= 10;
-	}
-	if (str[0] == '0' && len > 1)
+	if (s == -1)
 		str[0] = '-';
-	str[len] = '\0';
-	return (str);
 }
 
 char	*ft_itoa(int n)
 {
-	int		len;
-	char	*str;
+	char			*str;
+	long			nl;
+	unsigned int	nbr;
+	int				s;
 
-	len = ndigit(n);
-	str = ft_itoa_disgusting_hack(n, len);
+	s = 1;
+	if (n < 0)
+	{
+		nl = (long)n * -1;
+		s = -1;
+	}
+	else
+		nl = n;
+	nbr = ft_get_nbr(nl, s);
+	str = malloc(sizeof(char) * (nbr + 1));
+	if (!str)
+		return (NULL);
+	ft_convert_nbr(str, nl, nbr, s);
 	return (str);
 }
