@@ -6,13 +6,13 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 21:09:50 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/07/09 21:32:21 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/07/10 17:28:53 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned int	ft_get_nbr(long nl, int s)
+static unsigned int	ft_get_digits(long nl, int s)
 {
 	unsigned int	nbr;
 
@@ -29,39 +29,39 @@ static unsigned int	ft_get_nbr(long nl, int s)
 	return (nbr);
 }
 
-static void	ft_convert_nbr(char *str, long nl, unsigned int nbr, int s)
+static void	ft_convert_nbr(char *str, long nbr, unsigned int digits, int sign)
 {
-	str[nbr] = '\0';
-	str[--nbr] = nl % 10 + '0';
-	nl /= 10;
-	while (nl > 0)
+	str[digits] = '\0';
+	str[--digits] = nbr % 10 + '0';
+	nbr /= 10;
+	while (nbr > 0)
 	{
-		str[--nbr] = nl % 10 + '0';
-		nl /= 10;
+		str[--digits] = nbr % 10 + '0';
+		nbr /= 10;
 	}
-	if (s == -1)
+	if (sign == -1)
 		str[0] = '-';
 }
 
 char	*ft_itoa(int n)
 {
 	char			*str;
-	long			nl;
-	unsigned int	nbr;
-	int				s;
+	long			nbr;
+	unsigned int	digits;
+	int				sign;
 
-	s = 1;
+	sign = 1;
 	if (n < 0)
 	{
-		nl = (long)n * -1;
-		s = -1;
+		nbr = (long)n * -1;
+		sign = -1;
 	}
 	else
-		nl = n;
-	nbr = ft_get_nbr(nl, s);
-	str = malloc(sizeof(char) * (nbr + 1));
+		nbr = n;
+	digits = ft_get_digits(nbr, sign);
+	str = malloc(sizeof(char) * (digits + 1));
 	if (!str)
 		return (NULL);
-	ft_convert_nbr(str, nl, nbr, s);
+	ft_convert_nbr(str, nbr, digits, sign);
 	return (str);
 }

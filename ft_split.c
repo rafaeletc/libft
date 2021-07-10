@@ -6,7 +6,7 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 21:57:46 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/07/09 19:34:13 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/07/10 17:41:52 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,45 +38,46 @@ static int	ft_count_words(const char *s, char c)
 static char	*ft_string(const char *s, int init, int end)
 {
 	int		len;
-	char	*string;
+	char	*str;
 	int		index;
 
 	len = end - init + 1;
-	string = (char *)malloc(len * sizeof(char));
-	if (string == 0)
+	str = (char *)malloc(len * sizeof(char));
+	if (str == 0)
 		return (0);
 	index = 0;
 	while (init < end)
-		string[index++] = s[init++];
-	string[index] = '\0';
-	return (string);
+		str[index++] = s[init++];
+	str[index] = '\0';
+	return (str);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**split;
-	int		begin_w;
-	int		i;
-	int		j;
+	size_t	count[2];
+	int		start;
 
 	if (s == 0)
 		return (0);
-	i = -1;
-	j = 0;
-	begin_w = -1;
+	count[0] = 0;
+	count[1] = 0;
+	start = -1;
 	split = malloc((ft_count_words(s, c) + 1) * sizeof(char *));
 	if (split == 0)
 		return (0);
-	while ((size_t)++i <= ft_strlen(s))
+	while (count[0] <= ft_strlen(s))
 	{
-		if (s[i] != c && begin_w < 0)
-			begin_w = i;
-		else if ((s[i] == c || (size_t)i == ft_strlen(s)) && begin_w >= 0)
+		if (s[count[0]] != c && start < 0)
+			start = count[0];
+		else if ((s[count[0]] == c || count[0] == ft_strlen(s)) && start >= 0)
 		{
-			split[j++] = ft_string(s, begin_w, i);
-			begin_w = -1;
+			split[count[1]] = ft_string(s, start, count[0]);
+			++count[1];
+			start = -1;
 		}
+		++count[0];
 	}
-	split[j] = 0;
+	split[count[1]] = 0;
 	return (split);
 }
