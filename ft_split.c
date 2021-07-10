@@ -6,7 +6,7 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 21:57:46 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/07/10 17:41:52 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/07/10 17:45:42 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,7 @@ char	**ft_split(char const *s, char c)
 			start = count[0];
 		else if ((s[count[0]] == c || count[0] == ft_strlen(s)) && start >= 0)
 		{
-			split[count[1]] = ft_string(s, start, count[0]);
-			++count[1];
+			split[count[1]++] = ft_string(s, start, count[0]);
 			start = -1;
 		}
 		++count[0];
