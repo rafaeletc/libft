@@ -3,14 +3,16 @@
 	"tasks": [
 		{
 			"type": "cppbuild",
-			"label": "C/C++: gcc arquivo de build ativo",
+			"label": "build libft.a",
 			"command": "/usr/bin/gcc",
 			"args": [
 				"-fdiagnostics-color=always",
 				"-g",
 				"${file}",
 				"-o",
-				"${fileDirname}/${fileBasenameNoExtension}",
+				"${fileDirname}/${fileBasenameNoExtension}.out",
+				"${workspaceFolder}/libft.a",
+				"-L${workspaceFolder}/",
 				"-Wall",
 				"-Wextra",
 				"-Werror"

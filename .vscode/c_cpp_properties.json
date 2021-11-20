@@ -13,7 +13,8 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "/usr/include"
+                    "/usr/include",
+                    "${workspaceFolder}"
                 ]
             },
             "compilerArgs": [
