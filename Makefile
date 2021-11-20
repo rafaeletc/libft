@@ -6,7 +6,7 @@
 #    By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/16 21:42:30 by rde-lima          #+#    #+#              #
-#    Updated: 2021/11/16 14:23:59 by rde-lima         ###   ########.fr        #
+#    Updated: 2021/11/20 22:17:36 by rde-lima         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,37 +29,41 @@ OBJB :=	$(BONUS:%.c=%.o)
 all: $(NAME)
 
 $(OBJ): %.o : %.c
-	@$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 	@echo "Compiled $< successfully!"
 
 $(NAME): $(OBJ)
-	@ar rc $(NAME) $(OBJ)
-	@ranlib $(NAME)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 	@echo "Compiled $(NAME) successfully!"
 
 $(OBJB): %.o : %.c
-	@$(CC) $(FLAGS) -c $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 	@echo "Compiled $< successfully!"
 
 bonus: $(OBJB) libft.h
-	@ar rc $(NAME) $(OBJB)
-	@ranlib $(NAME)
+	ar rc $(NAME) $(OBJB)
+	ranlib $(NAME)
 	@echo "Compiled bonus to $(NAME) successfully!"
 
 clean:
-	@rm -rf $(OBJ)
+	rm -rf $(OBJ)
 	@echo "Clean done successfully!"
 
 bclean:
-	@rm -rf $(OBJB)
+	rm -rf $(OBJB)
 	@echo "Bonus clean done successfully!"
 
-fclean: clean
-	@rm -f $(NAME)
+fclean: clean bclean
+	rm -rf $(NAME)
 	@echo "Full clean done successfully!"
 
 re: fclean all
 
 rebonus : bclean bonus
 
-.PHONY: all bonus clean fclean re rebonus
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
+	gcc -nostartfiles -shared -o libft.so $(OBJ)
+
+.PHONY: all bonus clean bclean fclean re rebonus
