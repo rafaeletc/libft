@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.h": "c"
+		},
+		"workbench.colorTheme": "Dracula Soft",
+		"terminal.integrated.defaultProfile.linux": "fish",
+		"terminal.integrated.fontFamily": "'FiraCode Nerd Font', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+		"42header.email": "rde-lima@student.42sp.org.br",
+		"42header.username": "rde-lima",
+		"better-comments.highlightPlainText": true
+	}
+}

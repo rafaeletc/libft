@@ -6,7 +6,7 @@
 #    By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/16 21:42:30 by rde-lima          #+#    #+#              #
-#    Updated: 2021/07/12 14:36:45 by rde-lima         ###   ########.fr        #
+#    Updated: 2021/11/16 14:23:59 by rde-lima         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,10 @@ $(NAME): $(OBJ)
 	@ranlib $(NAME)
 	@echo "Compiled $(NAME) successfully!"
 
+$(OBJB): %.o : %.c
+	@$(CC) $(FLAGS) -c $< -o $@
+	@echo "Compiled $< successfully!"
+
 bonus: $(OBJB) libft.h
 	@ar rc $(NAME) $(OBJB)
 	@ranlib $(NAME)
@@ -57,9 +61,5 @@ fclean: clean
 re: fclean all
 
 rebonus : bclean bonus
-
-so:
-	$(CC) -nostartfiles -fPIC $(FLAGS) $(SRC) $(BONUS)
-	gcc -nostartfiles -shared -o libft.so $(OBJ) $(OBJB)
 
 .PHONY: all bonus clean fclean re rebonus

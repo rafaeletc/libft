@@ -1,10 +1,8 @@
 *.o
 *.theia-workspace
-*.code-workspace
-.vscode
 *.a
 *.so
 *.out
-test*
 .tags*
 *.sublime*
+libftTester/

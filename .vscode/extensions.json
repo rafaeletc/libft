@@ -1,0 +1,17 @@
+{
+    "recommendations": [
+        "ms-ceintl.vscode-language-pack-pt-br",
+        "dracula-theme.theme-dracula",
+        "kube.42header",
+        "ms-vscode.cpptools",
+        "aaron-bond.better-comments",
+        "austin.code-gnu-global",
+        "dalexhd.42-norminette",
+        "jeff-hykin.code-eol",
+        "cschlosser.doxdocgen",
+        "mhutchie.git-graph",
+        "technosophos.vscode-make",
+        "gurumukhi.selected-lines-count",
+        "usernamehw.errorlens"
+    ]
+}
