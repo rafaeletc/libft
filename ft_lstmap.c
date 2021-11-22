@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/04 00:25:10 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/11/22 02:56:40 by rde-lima         ###   ########.fr       */
+/*   Created: 2021/07/12 13:05:52 by rde-lima          #+#    #+#             */
+/*   Updated: 2021/11/22 02:45:56 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h"
+#include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char	*str;
-	size_t	size;
+	t_list	*new;
+	t_list	*temp;
 
-	size = 0;
-	if (!s1 && !s2)
-		return (NULL);
-	if (!s1)
-		return (ft_strdup(s2));
-	if (!s2)
-		return (ft_strdup(s1));
-	str = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	while (*s1 != '\0')
-		str[size++] = *s1++;
-	while (*s2 != '\0')
-		str[size++] = *s2++;
-	str[size] = '\0';
-	return (str);
+	new = NULL;
+	while (lst != NULL)
+	{
+		temp = ft_lstnew(f(lst->content));
+		if (!temp)
+		{
+			ft_lstclear(&new, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new, temp);
+		lst = lst->next;
+	}
+	return (new);
 }

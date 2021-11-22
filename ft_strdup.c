@@ -6,7 +6,7 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 20:08:09 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/06/04 00:22:52 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/11/22 02:55:15 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,17 @@
 
 char	*ft_strdup(const char *str1)
 {
-	size_t		counter;
-	char		*str;
+	size_t	counter;
+	char	*str;
 
-	str = malloc(sizeof(char) * (ft_strlen(str1) + 1));
-	if (!str || !str1)
+	if (!str1)
+		return (NULL);
+	str = malloc(ft_strlen(str1) + 1);
+	if (!str)
 		return (NULL);
 	counter = 0;
-	while (counter != ft_strlen(str1))
-	{
-		str[counter] = str1[counter];
-		++counter;
-	}
+	while (*str1 != '\0')
+		str[counter++] = *str1++;
 	str[counter] = '\0';
 	return (str);
 }
