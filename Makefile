@@ -6,7 +6,7 @@
 #    By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/16 21:42:30 by rde-lima          #+#    #+#              #
-#    Updated: 2021/11/22 02:50:03 by rde-lima         ###   ########.fr        #
+#    Updated: 2021/11/22 03:36:37 by rde-lima         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,4 +63,4 @@ fclean: clean
 
 re: fclean all bonus
 
-.PHONY: all bonus clean fclean re rebonus
+.PHONY: all bonus clean fclean re
