@@ -6,7 +6,7 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:59:40 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/07/09 19:54:01 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/11/22 02:55:21 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 size_t	ft_strlen(const char *str)
 {
-	size_t	counter;
+	size_t	len;
 
-	counter = 0;
-	while (str[counter] != '\0')
-		++counter;
-	return (counter);
+	len = 0;
+	if (!str)
+		return (len);
+	while (str[len] != '\0')
+		++len;
+	return (len);
 }
