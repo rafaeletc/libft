@@ -1,11 +1,9 @@
+.vscode*
 *.o
-*.theia-workspace
 *.a
 *.so
 *.out
 .tags*
-*.sublime*
-libftTester/
-libft-unit-test/
-libft-war-machine/
-.vscode/
+libftTester*
+libft-unit-test*
+libft-war-machine*
