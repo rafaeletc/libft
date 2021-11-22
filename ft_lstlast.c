@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/12 13:05:39 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/07/12 14:15:12 by rde-lima         ###   ########.fr       */
+/*   Created: 2021/07/12 13:05:49 by rde-lima          #+#    #+#             */
+/*   Updated: 2021/11/22 02:46:14 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*temp;
-	t_list	*ptr;
-
-	if (!lst || !del)
-		return ;
-	temp = NULL;
-	ptr = *lst;
-	while (ptr)
-	{
-		temp = ptr->next;
-		ft_lstdelone(temp, (*del));
-		ptr = temp;
-	}
-	*lst = NULL;
-	return ;
+	if (!lst)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }
