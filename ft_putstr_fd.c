@@ -6,7 +6,7 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/09 14:47:33 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/11/20 21:32:10 by rde-lima         ###   ########.fr       */
+/*   Updated: 2021/11/22 02:29:38 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	if (!s || fd < 0)
 		return ;
-	if (s != NULL)
-	{
-		while (*s)
-			ft_putchar_fd(*s++, fd);
-	}
+	while (*s)
+		ft_putchar_fd(*s++, fd);
 }
