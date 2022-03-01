@@ -6,7 +6,7 @@
 #    By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/16 21:42:30 by rde-lima          #+#    #+#              #
-#    Updated: 2021/11/22 03:55:06 by rde-lima         ###   ########.fr        #
+#    Updated: 2021/12/06 15:42:04 by rde-lima         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
 OBJ :=	$(SRC:%.c=%.o)
 
-CC =	clang
+CC =	gcc
 
 FLAGS =	-Wall -Werror -Wextra
 
