@@ -6,7 +6,7 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:42:06 by rde-lima          #+#    #+#             */
-/*   Updated: 2021/12/02 00:49:11 by rde-lima         ###   ########.fr       */
+/*   Updated: 2022/05/26 16:36:59 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}			t_list;
+}					t_list;
 
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
