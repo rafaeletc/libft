@@ -52,6 +52,7 @@ Mkfile.old
 dkms.conf
 
 .cache/
+compile_commands.json
 obj/
 libft.a
 libftTester/
