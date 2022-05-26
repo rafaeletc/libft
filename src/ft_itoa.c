@@ -6,7 +6,7 @@
 /*   By: rde-lima <rde-lima@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 21:09:50 by rde-lima          #+#    #+#             */
-/*   Updated: 2022/05/26 16:20:17 by rde-lima         ###   ########.fr       */
+/*   Updated: 2022/05/26 16:45:02 by rde-lima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ static unsigned int	ft_get_digits(int n)
 
 char	*ft_itoa(int n)
 {
-	char			*str;
-	unsigned int	size;
-	unsigned int	neg;
+	char	*str;
+	size_t	size;
+	size_t	neg;
 
 	size = 0;
 	neg = 0;
