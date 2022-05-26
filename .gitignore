@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-.vscode*
-*.o
-=======
 # Prerequisites
 *.d
 
@@ -22,7 +18,6 @@
 
 # Libraries
 *.lib
->>>>>>> devel
 *.a
 *.la
 *.lo
@@ -36,12 +31,6 @@
 # Executables
 *.exe
 *.out
-<<<<<<< HEAD
-.tags*
-libftTester*
-libft-unit-test*
-libft-war-machine*
-=======
 *.app
 *.i*86
 *.x86_64
@@ -69,4 +58,3 @@ libft.a
 libftTester/
 libft-unit-test/
 libft-war-machine/
->>>>>>> devel
