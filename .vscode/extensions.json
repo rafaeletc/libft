@@ -3,15 +3,18 @@
         "ms-ceintl.vscode-language-pack-pt-br",
         "dracula-theme.theme-dracula",
         "kube.42header",
-        "ms-vscode.cpptools",
         "aaron-bond.better-comments",
         "austin.code-gnu-global",
-        "jeff-hykin.code-eol",
-        "cschlosser.doxdocgen",
         "mhutchie.git-graph",
-        "technosophos.vscode-make",
-        "gurumukhi.selected-lines-count",
         "usernamehw.errorlens",
-        "evilcat.norminette-42"
+        "evilcat.norminette-42",
+        "mariusvanwijk-joppekoers.codam-norminette-3",
+        "llvm-vs-code-extensions.vscode-clangd",
+        "vadimcn.vscode-lldb",
+        "eamodio.gitlens",
+        "github.vscode-pull-request-github",
+        "2gua.rainbow-brackets",
+        "medo64.render-crlf",
+        "tomoki1207.selectline-statusbar"
     ]
 }
